@@ -75,3 +75,67 @@ function antras(x) {
 document.getElementById("bandom2").onclick = function () {
   antras(test2);
 };
+
+// ////////////////
+// KINTAMUJU PERDAVIMAS
+//
+
+// 1.1. apsirasau f-ja
+// 1.2. suteikiam kintamajam reiksme ir sakau kad kintamasis yra reiksme irasyta i input fielda
+// svarbu, kad imtu kintamaji pagal tai, ka irasau i input, turiu var ideti i funkcija
+
+// function perku() {
+//   var kiekis = document.getElementById("kiekis").value;
+//   alert("Jus sekmingai pridejote " + kiekis + " preke i savo krepseli");
+//   alert(kiekis);
+// }
+
+// // // 2. paleidziu funkcija paspaudus mygtuka
+// document.getElementById("pirkti").addEventListener("click", perku);
+
+////////////////////
+// KINTAMAJI perkelti i HTML ir keisti teksta (viskas is naujo)
+// 1. pasakau, kad as noriu kad funkcija pasileistu paspaudus mygtuka
+
+document.getElementById("pirkti").addEventListener("click", perku);
+
+// 2. Suteikiam kintamajam reiksme ir parasom kaip ji keisis priklausimai nuo irasyto skaiciaus
+
+function perku() {
+  var kiekis = document.getElementById("kiekis").value;
+  // pridedu kintamaji,
+  var error = document.getElementById("kiekis");
+  //pridedu kintamaji, kuris keis zodi prekes. jei nesurasau jokiu ifu, kintamasis bus lygu prekes
+  var zodis = "prekes";
+  //tuomet nustatome prie kokiu input reiksmiu kintamasis 'zodis' keisis
+  if (kiekis % 10 == 1) {
+    zodis = "prekę";
+  }
+  if ((kiekis > 10 && kiekis < 20) || kiekis % 10 == 0) {
+    zodis = "prekių";
+  }
+  // pasakom kad paleistu veiksma, kad atsirastu tekstas html, kadangi as negaliu priskirti funkcijos vardo, todel dedu i funkcijos vidu
+  document.getElementById("messages").innerHTML =
+    "Jūs sėkmingai pridėjote " + kiekis + " " + zodis + "  į savo krepšelį!";
+
+  // // UZDUOTIS paskaitos metu
+  if (kiekis > 100) {
+    document.getElementById("messages").innerHTML =
+      "Jusu pasirinktas prekiu kiekis yra didesnis nei leistinas";
+    error.classList.add("red");
+  }
+  // } else {
+  //   error.classList.remove("red");
+  // }
+  if (kiekis < 1) {
+    document.getElementById("messages").innerHTML =
+      "Pasirinktas per mazas kiekis";
+    error.classList.add("red");
+  }
+  // } else {
+  //   error.classList.remove("red");
+  // }
+  if (kiekis >= 1 && kiekis < 101) {
+    error.classList.remove("red");
+  }
+}
