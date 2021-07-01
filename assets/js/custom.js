@@ -108,6 +108,11 @@ function perku() {
   //pridedu kintamaji, kuris keis zodi prekes. jei nesurasau jokiu ifu, kintamasis bus lygu prekes
   var zodis = "prekes";
   //tuomet nustatome prie kokiu input reiksmiu kintamasis 'zodis' keisis
+
+  // paleidus funkcija klase visada bus removinta, kol neuzdesime, kad add
+  error.classList.add("red");
+
+  //tuomet nustatome prie kokiu input reiksmiu kintamasis 'zodis' keisis
   if (kiekis % 10 == 1) {
     zodis = "prekę";
   }
@@ -122,19 +127,13 @@ function perku() {
   if (kiekis > 100) {
     document.getElementById("messages").innerHTML =
       "Jusu pasirinktas prekiu kiekis yra didesnis nei leistinas";
-    error.classList.add("red");
   }
-  // } else {
-  //   error.classList.remove("red");
-  // }
+
   if (kiekis < 1) {
     document.getElementById("messages").innerHTML =
       "Pasirinktas per mazas kiekis";
-    error.classList.add("red");
   }
-  // } else {
-  //   error.classList.remove("red");
-  // }
+
   if (kiekis >= 1 && kiekis < 101) {
     error.classList.remove("red");
   }
