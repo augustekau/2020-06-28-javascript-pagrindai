@@ -139,3 +139,11 @@ function perku() {
     error.classList.remove("red");
   }
 }
+
+// /////////// RESET mygtukas
+
+document.getElementById("reset").addEventListener("click", reset);
+
+function reset() {
+  document.getElementById("kiekis").value = 1;
+}
