@@ -146,3 +146,178 @@ document.getElementById("reset").addEventListener("click", reset);
 function reset() {
   document.getElementById("kiekis").value = 1;
 }
+
+//////////////////////
+// 2021.07.01 CLASS WORK
+var i = 0;
+
+while (i < 10) {
+  //console.log(i);
+  i++;
+}
+
+i = 0;
+
+do {
+  //console.log('Skaicius yra: ' + i);
+  i++;
+} while (i < 10);
+
+var petras = [5, 6, 7, 8, 9];
+
+// console.log(petras[0]);
+
+/*for(let i = 0; i < petras.length; i++) {
+    console.log('Masyvo petras indeksas: ' + petras[i]);
+}*/
+
+const informacija = [
+  {
+    salis: "Letuva",
+    miestas: "Kaunas",
+    spalva: "Zalia",
+    data: "2021-03-03",
+    kiekis: "29",
+  },
+  {
+    salis: "Ispanija",
+    miestas: "Madridas",
+    spalva: "Raudona",
+    data: "2021-02-03",
+    kiekis: "7",
+  },
+  {
+    salis: "Portugalija",
+    miestas: "Lisabona",
+    spalva: "Geltona",
+    data: "2021-01-03",
+    kiekis: "101",
+  },
+  {
+    salis: "Italija",
+    miestas: "Roma",
+    spalva: "Melyna",
+    data: "2021-05-03",
+    kiekis: "27",
+  },
+];
+
+// for (let duomenys in informacija) {
+//   console.log(informacija[duomenys]);
+// }
+
+for (let duomenys in informacija) {
+  console.log(
+    informacija[duomenys]["salis"],
+    informacija[duomenys]["miestas"],
+    informacija[duomenys]["spalva"],
+    informacija[duomenys]["data"],
+    informacija[duomenys]["kiekis"]
+  );
+}
+
+// antras budas su dviem ciklais
+
+// kelti duomenis i lentele
+
+// //////
+// 02.07.2021 SWITCH FUNKCIJA galima naudoti vietoje if +, galim nustatyti defaultine kas bus jei kintamasis neigisjokios aprasytos reiksmes
+
+// let skaicius = 20;
+
+// switch (skaicius) {
+//   case 1:
+//     alert("skaicius 1");
+//     break;
+
+//   case 2:
+//     alert("skaicius 2");
+//     break;
+
+//   case 3:
+//     alert("skaicius 3");
+//     break;
+
+//   default:
+//     alert("error");
+// }
+
+// uzduotis
+
+document.getElementById("rodyti").addEventListener("click", rodom);
+
+function rodom() {
+  let lentele = document.getElementById("paslepta");
+
+  lentele.classList.remove("pasleptaLentele");
+}
+
+// toggle
+// 2 uzduotis
+// padaryti su ciklais!
+
+document.getElementById("skaiciuoti").onclick = function () {
+  const add = (arr) => arr.reduce((a, b) => a + b, 0);
+
+  var arr = [1, 2, 3, 6, 1, 5, 8, 1, 5, 4, 8, 2, 3];
+  var sum = add(arr);
+
+  alert(sum);
+};
+// atvaizduoti alerte atvaizduoti consolej atvaizduoti html
+// for (let i = 0; i < array.length; i++) {
+//   sum += array[i];
+// }
+// console.log(sum);
+//
+//
+//
+//
+//
+// 05.07.2021 UZDUOTIS
+
+// Paprastesnis variantas
+
+// document.getElementById("pasirink").onclick = function () {
+//   let skaicius = document.getElementById("pasirinkimas").value;
+//   // alert(skaicius);
+//   document.getElementById("pasirinkimoRezultatas").innerHTML =
+//     "Jusu pasirinkimas " + skaicius;
+// };
+
+// Ta pati uzduotis su SWITCH
+
+document
+  .getElementById("pasirink")
+  .addEventListener("click", parodytiPasirinkima);
+
+function parodytiPasirinkima() {
+  let skaicius = document.getElementById("pasirinkimas").value;
+  switch (skaicius) {
+    case "1":
+      document.getElementById("pasirinkimoRezultatas").innerHTML =
+        "PASIRINKAI " + skaicius;
+      break;
+
+    case "2":
+      document.getElementById("pasirinkimoRezultatas").innerHTML =
+        "PASIRINKAI " + skaicius;
+      break;
+
+    case "3":
+      alert("skaicius 3");
+      break;
+
+    default:
+      alert("error");
+  }
+}
+// ////////////////////////////////////
+//     JQUERY
+
+jQuery(document).ready(function () {
+  jQuery("#jquery").addClass("raudona");
+  jQuery("#jquery").click(function () {
+    alert("paspaudimas");
+  });
+});

@@ -1,3 +1,24 @@
 .red {
   border: 2px solid red;
 }
+.lentele {
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-top: 2rem;
+}
+
+.lentele th {
+  font-weight: 600;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+.pasleptaLentele {
+  display: none;
+}
+#jquery {
+  color: green;
+  transition: all 1s ease-in-out;
+}
+.raudona {
+  background-color: yellow;
+}
