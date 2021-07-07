@@ -281,27 +281,31 @@ function rodom() {
 //     alert("error");
 // }
 
-// 2 uzduotis
-// padaryti su ciklais!
+// UZDUOTIS skaiciu, esanciumasyve suma
+// be ciklo
 
+// document.getElementById("skaiciuoti").onclick = function () {
+//   const add = (arr) => arr.reduce((a, b) => a + b, 0);
+
+//   var arr = [1, 2, 3, 6, 1, 5, 8, 1, 5, 4, 8, 2, 3];
+//   var sum = add(arr);
+
+//   alert(sum);
+// };
+
+// su ciklu
 document.getElementById("skaiciuoti").onclick = function () {
-  const add = (arr) => arr.reduce((a, b) => a + b, 0);
+  var skaiciuSuma = [1, 2, 3, 6, 1, 5, 8, 1, 5, 4, 8, 2, 3];
 
-  var arr = [1, 2, 3, 6, 1, 5, 8, 1, 5, 4, 8, 2, 3];
-  var sum = add(arr);
+  var total = 0;
 
-  alert(sum);
+  for (let i = 0; i < skaiciuSuma.length; i++) {
+    total += skaiciuSuma[i];
+  }
+
+  document.getElementById("sum").innerHTML = total;
 };
-// atvaizduoti alerte atvaizduoti consolej atvaizduoti html
-// for (let i = 0; i < array.length; i++) {
-//   sum += array[i];
-// }
-// console.log(sum);
-//
-//
-//
-//
-//
+
 // 05.07.2021 UZDUOTIS
 
 // Paprastesnis variantas
