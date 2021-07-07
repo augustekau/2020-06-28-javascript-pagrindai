@@ -175,10 +175,11 @@ var petras = [5, 6, 7, 8, 9];
 
 // console.log(petras[0]);
 
-/*for(let i = 0; i < petras.length; i++) {
-    console.log('Masyvo petras indeksas: ' + petras[i]);
-}*/
+for (let i = 0; i < petras.length; i++) {
+  // console.log("Masyvo petras indeksas: " + petras[i]);
+}
 
+// masyvas
 const informacija = [
   {
     salis: "Letuva",
@@ -210,28 +211,58 @@ const informacija = [
   },
 ];
 
+// matosi ir var ir reiksmes
 // for (let duomenys in informacija) {
 //   console.log(informacija[duomenys]);
 // }
 
-for (let duomenys in informacija) {
-  console.log(
-    informacija[duomenys]["salis"],
-    informacija[duomenys]["miestas"],
-    informacija[duomenys]["spalva"],
-    informacija[duomenys]["data"],
-    informacija[duomenys]["kiekis"]
-  );
+// matosi tik reiksmes
+// for (let duomenys in informacija) {
+//   console.log(
+//     informacija[duomenys]["salis"],
+//     informacija[duomenys]["miestas"],
+//     informacija[duomenys]["spalva"],
+//     informacija[duomenys]["data"],
+//     informacija[duomenys]["kiekis"]
+//   );
+// }
+
+// antras budas su dviem ciklais???????????
+
+// UZDUOTIS Sukelti duomenis i lentele
+
+let html = "";
+
+for (let indeksas in informacija) {
+  html += "<tr>";
+  for (let indeksas2 in informacija[indeksas]) {
+    html += "<td>" + informacija[indeksas][indeksas2] + "</td>";
+  }
+  html += "</tr>";
 }
 
-// antras budas su dviem ciklais
+document.getElementById("lentelesVidus").innerHTML = html;
 
-// kelti duomenis i lentele
+// UZDUOTIS kad parodyti lentele paspaudus Rodyti + pakeisti mygtuko teksta
+
+document.getElementById("rodyti").addEventListener("click", rodom);
+
+function rodom() {
+  let lentele = document.getElementById("lentele");
+  if (lentele.classList.contains("pasleptaLentele")) {
+    lentele.classList.remove("pasleptaLentele");
+    document.getElementById("rodyti").innerText = "Slėpti";
+  } else {
+    lentele.classList.add("pasleptaLentele");
+    document.getElementById("rodyti").innerText = "Rodyti";
+  }
+}
+// toggle???????????????????
 
 // //////
 // 02.07.2021 SWITCH FUNKCIJA galima naudoti vietoje if +, galim nustatyti defaultine kas bus jei kintamasis neigis jokios aprasytos reiksmes
 
-// let skaicius = 20;
+// let skaicius = 2;
 
 // switch (skaicius) {
 //   case 1:
@@ -250,20 +281,6 @@ for (let duomenys in informacija) {
 //     alert("error");
 // }
 
-// UZDUOTIS kad parodyti lentele paspaudus Rodyti
-
-document.getElementById("rodyti").addEventListener("click", rodom);
-
-function rodom() {
-  let lentele = document.getElementById("lentele");
-  if (lentele.classList.contains("pasleptaLentele")) {
-    lentele.classList.remove("pasleptaLentele");
-  } else {
-    lentele.classList.add("pasleptaLentele");
-  }
-}
-
-// toggle
 // 2 uzduotis
 // padaryti su ciklais!
 
