@@ -140,26 +140,34 @@ function perku() {
 }
 
 // /////////// RESET mygtukas
+// 1 budas (nenuima red borderop)
+
+// document.getElementById("reset").addEventListener("click", reset);
+// function reset() {
+//   var error = (document.getElementById("kiekis").value = 1);
+// }
+
+// 2 budas (reload function)
 
 document.getElementById("reset").addEventListener("click", reset);
-
 function reset() {
-  document.getElementById("kiekis").value = 1;
+  location.reload();
 }
 
-//////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 // 2021.07.01 CLASS WORK
+
 var i = 0;
 
 while (i < 10) {
-  //console.log(i);
+  // console.log(i);
   i++;
 }
 
 i = 0;
 
 do {
-  //console.log('Skaicius yra: ' + i);
+  // console.log("Skaicius yra: " + i);
   i++;
 } while (i < 10);
 
@@ -221,7 +229,7 @@ for (let duomenys in informacija) {
 // kelti duomenis i lentele
 
 // //////
-// 02.07.2021 SWITCH FUNKCIJA galima naudoti vietoje if +, galim nustatyti defaultine kas bus jei kintamasis neigisjokios aprasytos reiksmes
+// 02.07.2021 SWITCH FUNKCIJA galima naudoti vietoje if +, galim nustatyti defaultine kas bus jei kintamasis neigis jokios aprasytos reiksmes
 
 // let skaicius = 20;
 
@@ -242,14 +250,17 @@ for (let duomenys in informacija) {
 //     alert("error");
 // }
 
-// uzduotis
+// UZDUOTIS kad parodyti lentele paspaudus Rodyti
 
 document.getElementById("rodyti").addEventListener("click", rodom);
 
 function rodom() {
-  let lentele = document.getElementById("paslepta");
-
-  lentele.classList.remove("pasleptaLentele");
+  let lentele = document.getElementById("lentele");
+  if (lentele.classList.contains("pasleptaLentele")) {
+    lentele.classList.remove("pasleptaLentele");
+  } else {
+    lentele.classList.add("pasleptaLentele");
+  }
 }
 
 // toggle
@@ -321,3 +332,54 @@ jQuery(document).ready(function () {
     alert("paspaudimas");
   });
 });
+
+// ///////////////////////////////////
+// 07.07.2021 Sukurti select metoda su jQuery
+
+jQuery("#pasirinkSpalva").change(function () {
+  let spalva = jQuery("#pasirinkSpalva").val();
+  alert("Pasirinkta spalva " + spalva);
+  jQuery(".rodytiSpalva").html("Pasirinkta spalva " + spalva);
+});
+
+// padaryti select su switch naudojant j query (is 05.07.2021)
+
+// jQuery(document).ready(function () {
+//   let skaicius = document.getElementById("pasirinkimas").value;
+//   switch (skaicius) {
+//     case "1":
+//       document.getElementById("pasirinkimoRezultatas").innerHTML =
+//         "PASIRINKAI " + skaicius;
+//       break;
+
+//     case "2":
+//       document.getElementById("pasirinkimoRezultatas").innerHTML =
+//         "PASIRINKAI " + skaicius;
+//       break;
+
+//     case "3":
+//       alert("skaicius 3");
+//       break;
+
+//     default:
+//       alert("error");
+//   }
+//   jQuery("#elementasIntegracijai").append(skaicius);
+// });
+
+// // Dinamine nuoroda (galime ideti belenkoki elementa su JS / galima naudoti vietoje innerHTML)
+// jQuery("#elementasIntegracijai").append(
+//   '<div class="integruotas"><a href="#" class="integruotaNuoroda">NUORODA </a></div>'
+// );
+// jQuery(".integruotaNuoroda.").click(function () {
+//   alert("Paspaudimas");
+// });
+
+// //  is Viliaus su masyvais
+// jQuery(informacija).ready(function () {
+//   jQuery(duomenys).each(function (indeksas, reiksme) {
+//     jQuery(reiksme).each(function (indeksas, reiksme) {
+//       console.log(reiksme["miestas"]);
+//     });
+//   });
+// });
