@@ -178,7 +178,7 @@ var petras = [5, 6, 7, 8, 9];
 for (let i = 0; i < petras.length; i++) {
   // console.log("Masyvo petras indeksas: " + petras[i]);
 }
-
+/////////////////////////////////////////////////////////
 // masyvas
 const informacija = [
   {
@@ -216,16 +216,28 @@ const informacija = [
 //   console.log(informacija[duomenys]);
 // }
 
+// Masyve pakeisti viena reiksme i kita (08.07.2021)
+
+informacija[1]["salis"] = "Kolumbija";
+informacija[3]["spalva"] = "Purple";
+
 // matosi tik reiksmes
-// for (let duomenys in informacija) {
-//   console.log(
-//     informacija[duomenys]["salis"],
-//     informacija[duomenys]["miestas"],
-//     informacija[duomenys]["spalva"],
-//     informacija[duomenys]["data"],
-//     informacija[duomenys]["kiekis"]
-//   );
-// }
+
+for (let duomenys in informacija) {
+  console.log(
+    informacija[duomenys]["salis"],
+    informacija[duomenys]["miestas"],
+    informacija[duomenys]["spalva"],
+    informacija[duomenys]["data"],
+    informacija[duomenys]["kiekis"]
+  );
+}
+
+// Masyve pakeisti viena reiksme i kita  (08.07.2021)
+
+// informacija[1]["salis"] = "Kolumbija";
+// informacija[3]["spalva"] = "Purple";
+// console.log(informacija);
 
 // antras budas su dviem ciklais???????????
 
@@ -281,7 +293,7 @@ function rodom() {
 //     alert("error");
 // }
 
-// UZDUOTIS skaiciu, esanciumasyve suma
+// UZDUOTIS skaiciu, esanciu masyve suma
 // be ciklo
 
 // document.getElementById("skaiciuoti").onclick = function () {
@@ -319,53 +331,11 @@ document.getElementById("skaiciuoti").onclick = function () {
 
 // Ta pati uzduotis su SWITCH
 
-document
-  .getElementById("pasirink")
-  .addEventListener("click", parodytiPasirinkima);
+// document
+//   .getElementById("pasirink")
+//   .addEventListener("click", parodytiPasirinkima);
 
-function parodytiPasirinkima() {
-  let skaicius = document.getElementById("pasirinkimas").value;
-  switch (skaicius) {
-    case "1":
-      document.getElementById("pasirinkimoRezultatas").innerHTML =
-        "PASIRINKAI " + skaicius;
-      break;
-
-    case "2":
-      document.getElementById("pasirinkimoRezultatas").innerHTML =
-        "PASIRINKAI " + skaicius;
-      break;
-
-    case "3":
-      alert("skaicius 3");
-      break;
-
-    default:
-      alert("error");
-  }
-}
-// ////////////////////////////////////
-//     JQUERY
-
-jQuery(document).ready(function () {
-  jQuery("#jquery").addClass("raudona");
-  jQuery("#jquery").click(function () {
-    alert("paspaudimas");
-  });
-});
-
-// ///////////////////////////////////
-// 07.07.2021 Sukurti select metoda su jQuery
-
-jQuery("#pasirinkSpalva").change(function () {
-  let spalva = jQuery("#pasirinkSpalva").val();
-  alert("Pasirinkta spalva " + spalva);
-  jQuery(".rodytiSpalva").html("Pasirinkta spalva " + spalva);
-});
-
-// padaryti select su switch naudojant j query (is 05.07.2021)
-
-// jQuery(document).ready(function () {
+// function parodytiPasirinkima() {
 //   let skaicius = document.getElementById("pasirinkimas").value;
 //   switch (skaicius) {
 //     case "1":
@@ -385,7 +355,49 @@ jQuery("#pasirinkSpalva").change(function () {
 //     default:
 //       alert("error");
 //   }
-//   jQuery("#elementasIntegracijai").append(skaicius);
+// }
+// ////////////////////////////////////
+//     JQUERY
+
+jQuery(document).ready(function () {
+  jQuery("#jquery").addClass("raudona");
+  jQuery("#jquery").click(function () {
+    alert("paspaudimas");
+  });
+});
+
+// /////////////////////////////////////////////////////////////////////////////////
+// 07.07.2021 Sukurti select metoda su jQuery
+
+jQuery("#pasirinkSpalva").change(function () {
+  let spalva = jQuery("#pasirinkSpalva").val();
+  alert("Pasirinkta spalva " + spalva);
+  jQuery(".rodytiSpalva").html("Pasirinkta spalva " + spalva);
+});
+
+// UZDUOTIS padaryti select su switch naudojant jQuery (is 05.07.2021)
+
+// jQuery(document).ready(function () {
+//   let skaicius = "#pasirinkimas".value;
+//   switch (skaicius) {
+//     case "1":
+//       document.getElementById("pasirinkimoRezultatas").innerHTML =
+//         "PASIRINKAI " + skaicius;
+//       break;
+
+//     case "2":
+//       document.getElementById("pasirinkimoRezultatas").innerHTML =
+//         "PASIRINKAI " + skaicius;
+//       break;
+
+//     case "3":
+//       alert("skaicius 3");
+//       break;
+
+//     default:
+//       alert("error");
+//   }
+//   jQuery("#pasirinkimoRezultatas").append(skaicius);
 // });
 
 // // Dinamine nuoroda (galime ideti belenkoki elementa su JS / galima naudoti vietoje innerHTML)
@@ -397,10 +409,136 @@ jQuery("#pasirinkSpalva").change(function () {
 // });
 
 // //  is Viliaus su masyvais
-// jQuery(informacija).ready(function () {
+
+// jQuery(document).ready(function () {
 //   jQuery(duomenys).each(function (indeksas, reiksme) {
 //     jQuery(reiksme).each(function (indeksas, reiksme) {
-//       console.log(reiksme["miestas"]);
+//       console.log(reiksme["adresas"]);
 //     });
 //   });
 // });
+////////////////////////////////////////////////////////////////////////////////////
+// 08.07.2021 UZDUOTIS sukurti lentele ir perkelti i ja ciklo duomenis jQuery pagalba
+
+// 1. sukurti cikla
+
+const jqinformacija = [
+  {
+    salis: "Letuva",
+    miestas: "Kaunas",
+    spalva: "Zalia",
+    data: "2021-03-03",
+    kiekis: "29",
+  },
+  {
+    salis: "Ispanija",
+    miestas: "Madridas",
+    spalva: "Raudona",
+    data: "2021-02-03",
+    kiekis: "7",
+  },
+  {
+    salis: "Portugalija",
+    miestas: "Lisabona",
+    spalva: "Geltona",
+    data: "2021-01-03",
+    kiekis: "101",
+  },
+  {
+    salis: "Italija",
+    miestas: "Roma",
+    spalva: "Melyna",
+    data: "2021-05-03",
+    kiekis: "27",
+  },
+];
+// 2. atvaizduoti cikla lenteleje (su JS)
+
+// declare html variable (a string holder):
+var html2 = "";
+for (let jqindeksas in jqinformacija) {
+  // add opening <tr> tag to the string:
+  html2 += "<tr>";
+  for (let jqindeksas2 in jqinformacija[jqindeksas]) {
+    // add <td> elements to the string:
+    html2 += "<td>" + jqinformacija[jqindeksas][jqindeksas2] + "</td>";
+  }
+  // add closing </tr> tag to the string:
+  html2 += "</tr>";
+}
+//append created html to the table body:
+jQuery("#jqlentelesVidus").append(html2);
+
+// UZDUOTIS susikurti masyva
+
+const masyvas = [
+  {
+    klientas: "Adomaviciaus imone",
+    kodas: "1000",
+    data: "2020.06.20",
+    produktas: "Nesiojamasis kompiuteris",
+    kaina: "1499",
+    papildoma_informacija: "",
+  },
+  {
+    klientas: "UAB Kesko Senukai",
+    kodas: "1001",
+    data: "2020.06.21",
+    produktas: "Televizorius",
+    kaina: "800",
+    papildoma_informacija: "Reikalingas pristatymas",
+  },
+  {
+    klientas: "UAB Simplea",
+    kodas: "1002",
+    data: "2020.06.22",
+    produktas: "Telefonas",
+    kaina: "299",
+    papildoma_informacija: "",
+  },
+  {
+    klientas: "UAB 5 Kontinentai",
+    kodas: "1003",
+    data: "2020.06.23",
+    produktas: "Plansete",
+    kaina: "450",
+    papildoma_informacija: "",
+  },
+];
+
+// 1.perkelti duomenys su JS
+
+// var html2 = "";
+// for (let jqindeksas in masyvas) {
+//   // add opening <tr> tag to the string:
+//   html2 += "<tr>";
+//   for (let jqindeksas2 in masyvas[jqindeksas]) {
+//     // add <td> elements to the string:
+//     html2 += "<td>" + masyvas[jqindeksas][jqindeksas2] + "</td>";
+//   }
+//   // add closing </tr> tag to the string:
+//   html2 += "</tr>";
+// }
+// //append created html to the table body:
+// jQuery("#jqlentelesVidus2").append(html2);
+
+// 2.perkelti duomenys su jQuery
+
+var lentelesBody = jQuery("#jqlentele tbody"),
+  reiksme = [
+    "klientas",
+    "kodas",
+    "data",
+    "produktas",
+    "kaina",
+    "papildoma_informacija",
+  ];
+
+jQuery(masyvas).each(function (i, r) {
+  var tr = jQuery("<tr>");
+  jQuery(reiksme).each(function (i, k) {
+    jQuery("<td>").html(r[k]).appendTo(tr);
+  });
+  jQuery("#jqlentelesVidus2").append(tr);
+  // lentelesBody.append(tr);
+});
