@@ -524,21 +524,77 @@ const masyvas = [
 
 // 2.perkelti duomenys su jQuery
 
-var lentelesBody = jQuery("#jqlentele tbody"),
-  reiksme = [
-    "klientas",
-    "kodas",
-    "data",
-    "produktas",
-    "kaina",
-    "papildoma_informacija",
-  ];
+var lentelesBody = jQuery("#jqlentele tbody");
 
-jQuery(masyvas).each(function (i, r) {
-  var tr = jQuery("<tr>");
-  jQuery(reiksme).each(function (i, k) {
-    jQuery("<td>").html(r[k]).appendTo(tr);
+jQuery.each(masyvas, function (i, r) {
+  var tr = jQuery("<tr>"); //sukuriame html elementa (1)
+  jQuery.each(r, function (i, k) {
+    jQuery("<td>").html(k).appendTo(tr);
   });
-  jQuery("#jqlentelesVidus2").append(tr);
-  // lentelesBody.append(tr);
+  jQuery("#jqlentelesVidus2").prepend(tr); //apend pagalba mes ta html elementa atvaizduojame (2)
+  // lentelesBody.append(tr); sitas ikelia cikla i visas lenteles
 });
+// append - ideda koda zemiau esancio turinio
+// prepend - ideda koda auksciau esancio turinio
+// html - pakeicia visa esanti turini numatytu
+// after - ikelia po pries kazkoki elementa (reikia suteikti tam elementui klase)
+// before - ikelia info pries kazkoki elementa (reikia suteikti tam elementui klase)
+
+///////////////////////////////////////////////////////////////////////////////////////
+//// 15.07.2021
+//// 1 UZDUOTIS
+
+var vardas = "Jonas";
+pavarde = "Jonaitis";
+metai = "1995";
+
+// alert("As esu " + vardas + " " + pavarde + " gimes " + metai);
+document.getElementById("js-testai").innerHTML =
+  "As esu " + vardas + " " + pavarde + " gimes " + metai;
+
+//// 2 UZDUOTIS
+var roundNumber1 = 5.7;
+//apvalina skaiciu i virsu
+document.getElementById("round-number").innerHTML = Math.round(roundNumber1);
+//apvalina skaiciu i apacia
+document.getElementById("round-number2").innerHTML = Math.floor(roundNumber1);
+
+//// 3 UZDUOTIS
+
+//document.getElementById("button1").addEventListener("click", randomSkaicius);
+
+// function randomSkaicius(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+// let value4 = randomSkaicius(min, max);
+
+//// 4 UZDUOTIS
+
+function randomSkaicius2(min, max) {
+  return Math.floor(max / min);
+}
+let value2 = randomSkaicius2(1, 4.7);
+document.getElementById("4uzduotis").innerHTML = value2;
+
+//// 5 UZDUOTIS
+// let values = [1, 10, 25];
+// var min = 1;
+// var mid = 10;
+// var max = 25;
+function randomSkaicius3() {
+  return Math.floor(Math.max(1, 10, 25) - Math.min(1, 10, 25));
+}
+let value3 = randomSkaicius3();
+alert(value3);
+
+//// 6 UZDUOTIS
+//var atsitiktinisSkaicius = [5, 6, 7, 8, 9];
+
+// Generate a number between 0 and 10, including 10
+
+// function generateRandomInteger(max) {
+//   return Math.floor(Math.random() * max) + 1;
+// }
+
+// let value4 = generateRandomInteger(10);
+// alert(value4);
