@@ -561,35 +561,54 @@ document.getElementById("round-number2").innerHTML = Math.floor(roundNumber1);
 
 //// 3 UZDUOTIS
 
-//document.getElementById("button1").addEventListener("click", randomSkaicius);
-
-// function randomSkaicius(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1) + min);
-// }
-// let value4 = randomSkaicius(min, max);
+function randomSkaicius(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+let value = randomSkaicius(1, 8);
+document.getElementById("3uzduotis").innerHTML = value;
 
 //// 4 UZDUOTIS
 
-function randomSkaicius2(min, max) {
-  return Math.floor(max / min);
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
-let value2 = randomSkaicius2(1, 4.7);
-document.getElementById("4uzduotis").innerHTML = value2;
+var skaicius1 = random(0, 4);
+var skaicius2 = random(0, 4);
+
+let skaiciuoti = skaicius1 / skaicius2;
+
+if (skaiciuoti == 0) {
+  document.getElementById("4uzduotis").innerHTML =
+    skaicius1 + " , " + skaicius2 + " , " + "Dalyba is 0 negalima";
+} else {
+  document.getElementById("4uzduotis").innerHTML =
+    skaicius1 + " padalinta is " + skaicius2 + " lygu " + skaiciuoti;
+}
 
 //// 5 UZDUOTIS
-
-function randomSkaicius3() {
-  return 1 + 17 + 25 - Math.min(1, 17, 25) - Math.max(1, 17, 25);
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
-let value3 = randomSkaicius3();
-document.getElementById("5uzduotis").innerHTML = value3;
+var number1 = random(0, 25);
+var number2 = random(0, 25);
+var number3 = random(0, 25);
+
+let average =
+  number1 +
+  number2 +
+  number3 -
+  Math.min(number1, number2, number3) -
+  Math.max(number1, number2, number3);
+
+document.getElementById("5uzduotis").innerHTML =
+  number1 + " , " + number2 + " , " + number3 + "   Average " + average;
 
 //// 6 UZDUOTIS
 
-// Generate random number between
+// Generate random number
 
 function generateRandomNumber(max) {
-  return Math.random() * max + 1;
+  return Math.random() * max;
 }
 
 let value4 = generateRandomNumber(10);
