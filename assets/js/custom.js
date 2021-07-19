@@ -577,24 +577,20 @@ let value2 = randomSkaicius2(1, 4.7);
 document.getElementById("4uzduotis").innerHTML = value2;
 
 //// 5 UZDUOTIS
-// let values = [1, 10, 25];
-// var min = 1;
-// var mid = 10;
-// var max = 25;
+
 function randomSkaicius3() {
-  return Math.floor(Math.max(1, 10, 25) - Math.min(1, 10, 25));
+  return 1 + 17 + 25 - Math.min(1, 17, 25) - Math.max(1, 17, 25);
 }
 let value3 = randomSkaicius3();
-alert(value3);
+document.getElementById("5uzduotis").innerHTML = value3;
 
 //// 6 UZDUOTIS
-//var atsitiktinisSkaicius = [5, 6, 7, 8, 9];
 
-// Generate a number between 0 and 10, including 10
+// Generate random number between
 
-// function generateRandomInteger(max) {
-//   return Math.floor(Math.random() * max) + 1;
-// }
+function generateRandomNumber(max) {
+  return Math.random() * max + 1;
+}
 
-// let value4 = generateRandomInteger(10);
-// alert(value4);
+let value4 = generateRandomNumber(10);
+document.getElementById("6uzduotis").innerHTML = value4;
