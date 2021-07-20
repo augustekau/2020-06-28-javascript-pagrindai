@@ -613,41 +613,37 @@ var seven_skaicius1 = randomSkaicius(-10, 10);
 var seven_skaicius2 = randomSkaicius(-10, 10);
 var seven_skaicius3 = randomSkaicius(-10, 10);
 
-var color1 = document.getElementById("7_1uzduotis");
-var color2 = document.getElementById("7_2uzduotis");
-var color3 = document.getElementById("7_3uzduotis");
-
 // FIRST NUMBER
 if (seven_skaicius1 < 0) {
-  color1.classList.add("raudona7");
+  document.getElementById("7_1uzduotis").classList.add("raudona7");
 }
 if (seven_skaicius1 == 0) {
-  color1.classList.add("melyna7");
+  document.getElementById("7_1uzduotis").classList.add("melyna7");
 }
 if (seven_skaicius1 > 0) {
-  color1.classList.add("zalia7");
+  document.getElementById("7_1uzduotis").classList.add("zalia7");
 }
 
 // SECOND NUMBER
 if (seven_skaicius2 < 0) {
-  color2.classList.add("raudona7");
+  document.getElementById("7_2uzduotis").classList.add("raudona7");
 }
 if (seven_skaicius2 == 0) {
-  color2.classList.add("melyna7");
+  document.getElementById("7_2uzduotis").classList.add("melyna7");
 }
 if (seven_skaicius2 > 0) {
-  color2.classList.add("zalia7");
+  document.getElementById("7_2uzduotis").classList.add("zalia7");
 }
 
-// SECOND NUMBER
+// THIRD NUMBER
 if (seven_skaicius3 < 0) {
-  color3.classList.add("raudona7");
+  document.getElementById("7_3uzduotis").classList.add("raudona7");
 }
 if (seven_skaicius3 == 0) {
-  color3.classList.add("melyna7");
+  document.getElementById("7_3uzduotis").classList.add("melyna7");
 }
 if (seven_skaicius3 > 0) {
-  color3.classList.add("zalia7");
+  document.getElementById("7_3uzduotis").classList.add("zalia7");
 }
 document.getElementById("7_1uzduotis").innerHTML = seven_skaicius1;
 document.getElementById("7_2uzduotis").innerHTML = seven_skaicius2;
@@ -675,3 +671,87 @@ document.getElementById("8uzduotis").innerHTML =
   " vnt., kuriu kaina " +
   eight_skaicius * (1 - discount) +
   " EUR";
+
+//// 9 UZDUOTIS
+
+///////////////////////////////////////////////////////////////////////////////////////
+//// 15.07.2021
+//// 1 UZDUOTIS
+// a)
+let text = "";
+
+for (let i = 0; i < 400; i++) {
+  text += "*";
+}
+document.getElementById("ciklai_1uzduotis").innerHTML = text;
+
+// a)
+let text1 = "";
+let counter = 0;
+
+for (let i = 0; i < 400; i++) {
+  if (counter == 50) {
+    text1 += "<br>";
+    // paskaiciavus jis vel nusinulina, kad jis kartotusi kas 50 ciklu
+    counter = 0;
+  }
+  text1 += "*";
+  counter++;
+}
+document.getElementById("ciklai_1b_uzduotis").innerHTML = text1;
+
+// // 2 UZDUOTIS
+
+let text2 = "";
+
+for (let i = 0; i < 300; i++) {
+  var task_two = randomSkaicius(0, 300);
+
+  text2 += [task_two] + " ";
+}
+
+document.getElementById("ciklai_2uzduotis").innerHTML = text2;
+
+// print how many is higher than 150
+
+// first option
+
+// let text3 = "";
+
+// for (let i = 0; i < 300; i++) {
+//   var task_two_b = randomSkaicius(0, 300);
+//   if (task_two_b > 150) {
+//     text3 += [task_two_b] + " ";
+//   }
+// }
+
+// document.getElementById("ciklai_2a_uzduotis").innerHTML = text3;
+
+// second option
+
+let text3 = "";
+let task_two_a = 0;
+
+for (let i = 0; i < 300; i++) {
+  task_two_a = randomSkaicius(0, 300);
+  if (task_two_a > 150) {
+    text3 += [task_two_a] + " ";
+  }
+}
+
+document.getElementById("ciklai_2a_uzduotis").innerHTML = text3;
+
+// red higher than 257
+
+let text4 = "";
+// let task_two_b = 0;
+
+for (let i = 0; i < 300; i++) {
+  var task_two_b = randomSkaicius(0, 300);
+  if (task_two_b > 275) {
+    text4 += '<span class="raudona7">' + [task_two_b] + "</span> ";
+  }
+  text4 += [task_two_b] + " ";
+}
+
+document.getElementById("ciklai_2b_uzduotis").innerHTML = text4;

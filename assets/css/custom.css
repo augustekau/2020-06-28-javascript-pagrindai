@@ -43,3 +43,8 @@
 .zalia7 {
   color: green;
 }
+/* 20.07.2021 */
+/* 1 UZDUOTIS */
+#ciklai_1uzduotis {
+  word-break: break-all;
+}
