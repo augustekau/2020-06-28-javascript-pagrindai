@@ -564,25 +564,19 @@ document.getElementById("round-number2").innerHTML = Math.floor(roundNumber1);
 function randomSkaicius(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-let value = randomSkaicius(1, 8);
-document.getElementById("3uzduotis").innerHTML = value;
 
 //// 4 UZDUOTIS
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-var skaicius1 = random(0, 4);
-var skaicius2 = random(0, 4);
+var skaicius1 = randomSkaicius(0, 4);
+var skaicius2 = randomSkaicius(0, 4);
 
 let skaiciuoti = skaicius1 / skaicius2;
 
-if (skaiciuoti == 0) {
+document.getElementById("skaiciuoti1").addEventListener("click", dalyba);
+function dalyba() {
+  if (skaiciuoti == 0) skaiciuoti = "Dalyba is 0 negalima";
   document.getElementById("4uzduotis").innerHTML =
-    skaicius1 + " , " + skaicius2 + " , " + "Dalyba is 0 negalima";
-} else {
-  document.getElementById("4uzduotis").innerHTML =
-    skaicius1 + " padalinta is " + skaicius2 + " lygu " + skaiciuoti;
+    skaicius1 + " / " + skaicius2 + " = " + skaiciuoti;
 }
 
 //// 5 UZDUOTIS
@@ -613,3 +607,71 @@ function generateRandomNumber(max) {
 
 let value4 = generateRandomNumber(10);
 document.getElementById("6uzduotis").innerHTML = value4;
+
+//// 7 UZDUOTIS
+var seven_skaicius1 = randomSkaicius(-10, 10);
+var seven_skaicius2 = randomSkaicius(-10, 10);
+var seven_skaicius3 = randomSkaicius(-10, 10);
+
+var color1 = document.getElementById("7_1uzduotis");
+var color2 = document.getElementById("7_2uzduotis");
+var color3 = document.getElementById("7_3uzduotis");
+
+// FIRST NUMBER
+if (seven_skaicius1 < 0) {
+  color1.classList.add("raudona7");
+}
+if (seven_skaicius1 == 0) {
+  color1.classList.add("melyna7");
+}
+if (seven_skaicius1 > 0) {
+  color1.classList.add("zalia7");
+}
+
+// SECOND NUMBER
+if (seven_skaicius2 < 0) {
+  color2.classList.add("raudona7");
+}
+if (seven_skaicius2 == 0) {
+  color2.classList.add("melyna7");
+}
+if (seven_skaicius2 > 0) {
+  color2.classList.add("zalia7");
+}
+
+// SECOND NUMBER
+if (seven_skaicius3 < 0) {
+  color3.classList.add("raudona7");
+}
+if (seven_skaicius3 == 0) {
+  color3.classList.add("melyna7");
+}
+if (seven_skaicius3 > 0) {
+  color3.classList.add("zalia7");
+}
+document.getElementById("7_1uzduotis").innerHTML = seven_skaicius1;
+document.getElementById("7_2uzduotis").innerHTML = seven_skaicius2;
+document.getElementById("7_3uzduotis").innerHTML = seven_skaicius3;
+
+//// 8 UZDUOTIS
+
+var eight_skaicius = randomSkaicius(5, 3000);
+
+if (eight_skaicius <= 1000) {
+  discount = 0;
+}
+
+if (eight_skaicius > 1000 && eight_skaicius <= 2000) {
+  discount = 0.03;
+}
+
+if (eight_skaicius > 2000) {
+  discount = 0.04;
+}
+
+document.getElementById("8uzduotis").innerHTML =
+  "Jus perkate " +
+  eight_skaicius +
+  " vnt., kuriu kaina " +
+  eight_skaicius * (1 - discount) +
+  " EUR";
