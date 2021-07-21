@@ -686,72 +686,90 @@ for (let i = 0; i < 400; i++) {
 document.getElementById("ciklai_1uzduotis").innerHTML = text;
 
 // a)
+// let text1 = "";
+// let counter = 0;
+
+// for (let i = 0; i < 400; i++) {
+//   if (counter == 50) {
+//     text1 += "<br>";
+//     // paskaiciavus jis vel nusinulina, kad jis kartotusi kas 50 ciklu
+//     counter = 0;
+//   }
+//   text1 += "*";
+//   counter++;
+// }
+// document.getElementById("ciklai_1b_uzduotis").innerHTML = text1;
+
 let text1 = "";
-let counter = 0;
 
 for (let i = 0; i < 400; i++) {
-  if (counter == 50) {
+  if (i != 0 && i % 50 == 0) {
     text1 += "<br>";
-    // paskaiciavus jis vel nusinulina, kad jis kartotusi kas 50 ciklu
-    counter = 0;
   }
   text1 += "*";
-  counter++;
 }
 document.getElementById("ciklai_1b_uzduotis").innerHTML = text1;
 
 // // 2 UZDUOTIS
 
 let text2 = "";
+let task_two = 0;
+let higher = 0;
 
 for (let i = 0; i < 300; i++) {
-  var task_two = randomSkaicius(0, 300);
-
-  text2 += [task_two] + " ";
+  task_two = randomSkaicius(0, 300);
+  //suskaiciuoti didesnius nei 150 (tam papildomai susikurtas papildomas variable)
+  if (task_two > 150) higher++;
+  //paraudoninti didesnius nei 275
+  if (task_two > 275) {
+    text2 += '<span class="raudona7">' + task_two + "</span> ";
+  } else {
+    //jei nedidesni neo 275 - tiesiog atprintinti reiksmes
+    text2 += task_two;
+  }
+  // padaryti taip, kad visos reiksmes iki 299 butu atskirtos kableliu ir tarpu. iki 299 todel, kad po paskutines reiksmes kablelio nebutu
+  if (i != 299) text2 += ", ";
 }
 
 document.getElementById("ciklai_2uzduotis").innerHTML = text2;
+document.getElementById("ciklai_2a_uzduotis").innerHTML = higher;
 
-// print how many is higher than 150
-
-// first option
-
-// let text3 = "";
-
-// for (let i = 0; i < 300; i++) {
-//   var task_two_b = randomSkaicius(0, 300);
-//   if (task_two_b > 150) {
-//     text3 += [task_two_b] + " ";
-//   }
-// }
-
-// document.getElementById("ciklai_2a_uzduotis").innerHTML = text3;
-
-// second option
+// // 3 UZDUOTIS
 
 let text3 = "";
-let task_two_a = 0;
+let kablelis = ", ";
+let skaiciai3000 = 0;
+let dalyba77 = 77;
 
-for (let i = 0; i < 300; i++) {
-  task_two_a = randomSkaicius(0, 300);
-  if (task_two_a > 150) {
-    text3 += [task_two_a] + " ";
+// i suteikia reiksmes nuo 1 iki 3000
+for (let i = 1; i < 3000; i++) {
+  // kintamajam skaiciai suteikiam reiksmes gautas visus i (skaiciai nuo 0 iki 3000) padalinus is 77
+  skaiciai3000 = i / dalyba77;
+  // number isInteger - rodyti skaicius, kurie po dalybos yra be kablelio
+  if (Number.isInteger(skaiciai3000)) {
+    // isskiriam skaicius kableliu
+    if (i != dalyba77) {
+      text3 += kablelis;
+    }
+    // spausdinam skaicius po dalybos, be kablelio
+    text3 += i;
   }
+  //if (i == 3000) text3 += " . ";
 }
 
-document.getElementById("ciklai_2a_uzduotis").innerHTML = text3;
+document.getElementById("ciklai_3uzduotis").innerHTML = text3;
 
-// red higher than 257
+// // 4 UZDUOTIS
 
 let text4 = "";
-// let task_two_b = 0;
+let kvadratas = 0;
 
-for (let i = 0; i < 300; i++) {
-  var task_two_b = randomSkaicius(0, 300);
-  if (task_two_b > 275) {
-    text4 += '<span class="raudona7">' + [task_two_b] + "</span> ";
+for (let i = 0; i < 10000; i++) {
+  if (kvadratas == 100) {
+    text4 += "<br>";
+    kvadratas = 0;
   }
-  text4 += [task_two_b] + " ";
+  text4 += "*";
+  kvadratas++;
 }
-
-document.getElementById("ciklai_2b_uzduotis").innerHTML = text4;
+document.getElementById("ciklai_4uzduotis").innerHTML = text4;
