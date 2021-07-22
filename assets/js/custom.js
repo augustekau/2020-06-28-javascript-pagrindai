@@ -764,12 +764,68 @@ document.getElementById("ciklai_3uzduotis").innerHTML = text3;
 let text4 = "";
 let kvadratas = 0;
 
-for (let i = 0; i < 10000; i++) {
-  if (kvadratas == 100) {
+for (let i = 0; i < 100; i++) {
+  if (kvadratas == 10) {
     text4 += "<br>";
     kvadratas = 0;
   }
+  // if (kvadratas == 9) {
+  //   text4 += '<span class="raudona7">' + kvadratas + "</span> ";
+  //   kvadratas = 0;
+  // }
   text4 += "*";
   kvadratas++;
 }
 document.getElementById("ciklai_4uzduotis").innerHTML = text4;
+
+// 5  UZDUOTIS
+
+// zaideju taskai partijos metu
+let benas = 0;
+let jovita = 0;
+//zaidejo tasku suma per kelias partijas
+let benorezultatas = 0;
+let jovitosrezultatas = 0;
+//kintamasis rezultatui parodyti
+let text5 = "";
+//kintamasis sukurtas tam, kad sustabdytu cikla, kuomet surinktu tasku suma bus didesne nei 222
+let ended = false;
+
+//i pasirenkam 100, nes ciklo sukti nereikes daugiau nei 100 kartu kol zaidejas surinks 222 taskus
+for (let i = 0; i <= 100; i++) {
+  //tam kad ciklas sustotu po 222
+  if (ended) break;
+  //zaidejai gauna random taskus
+  benas = randomSkaicius(10, 20);
+  jovita = randomSkaicius(5, 25);
+  // kad neridentu 12 i
+  if (benas == 12 || jovita == 12) {
+    document.getElementById("ciklai_51uzduotis").innerHTML +=
+      i + 1 + " partija: Iskrito 12 <br>";
+    //jei isridena 12, ciklas baigiasi  sioje vietoje (neprisideda prie sumos ir suka random skaicius is naujo)
+    continue;
+  }
+
+  //sudedam tju gautus random taskus +=
+  benorezultatas += benas;
+  jovitosrezultatas += jovita;
+
+  // kad matytume kiek tasku surinko kaskart metant kauliuka. kadangi reiksmiu daugiau nei 1, rasome +=, kad parodytu visas
+  document.getElementById("ciklai_51uzduotis").innerHTML +=
+    i + 1 + " partija: " + " Benas " + benas + " Jovita " + jovita + "<br>";
+
+  // jei kuris zaidejas surenka 222, ciklas baigiasi
+  if (benorezultatas >= 222 || jovitosrezultatas >= 222) {
+    ended = true;
+    // jei benas surinko daugiau - irasom teksta ir rezultata
+    if (benorezultatas >= 222) {
+      text5 = "Benas surinkes " + benorezultatas;
+    }
+    //jei benas surinko daugiau - irasom teksta ir rezultata
+    else {
+      text5 = "Jovita surinkus " + jovitosrezultatas;
+    }
+  }
+}
+
+document.getElementById("ciklai_5uzduotis").innerHTML = "LAIMETOJAS: " + text5;
