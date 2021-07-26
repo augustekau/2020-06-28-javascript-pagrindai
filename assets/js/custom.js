@@ -829,3 +829,225 @@ for (let i = 0; i <= 100; i++) {
 }
 
 document.getElementById("ciklai_5uzduotis").innerHTML = "LAIMETOJAS: " + text5;
+
+// 6  UZDUOTIS su vinimis
+
+let mazasSmugis = 0;
+let smugiuKartai = 0;
+// let bendrasSmugiuKiekis;
+let text6 = "";
+
+for (let i = 0; i < 5; i++) {
+  let ended2 = false;
+  //kodel sita kintamaji reikia perkelti i visu? 1:35 min
+  let smugiuSuma = 0;
+  for (smugiuKartai = 1; smugiuKartai <= 20; smugiuKartai++) {
+    if (ended2) break;
+    mazasSmugis = randomSkaicius(5, 20);
+    smugiuSuma += mazasSmugis;
+    if (smugiuSuma >= 85) {
+      ended2 = true;
+      if (smugiuSuma >= 85) {
+        text6 +=
+          "Kalimu skaicius " + (i + 1) + " viniai: " + smugiuKartai + "<br>";
+      }
+    }
+    // document.getElementById("ciklai_6uzduotis").innerHTML +=
+    //   "Atskiro smugio gylis mm " + mazasSmugis + "<br>";
+    // document.getElementById("ciklai_6uzduotis").innerHTML +=
+    //   "Smugiu suma mm: " + smugiuSuma + "<br>";
+  }
+  //???? kaip suskaiciuoti bendra skaiciu?
+  // bendrasSmugiuKiekis += smugiuKartai;
+  // text6 += "Kalimu skaicius : " + bendrasSmugiuKiekis;
+}
+// bendrasSmugiuKiekis += smugiuKartai;
+// text6 += "Kalimu skaicius : " + bendrasSmugiuKiekis;
+document.getElementById("ciklai_6uzduotis").innerHTML += text6;
+
+let didelisSmugis = 0;
+let dideliuSmugiuKartai = 0;
+let tikimybe = 0;
+// let bendrasSmugiuKiekis;
+let text6b = "";
+// let ended2b = false;
+// let dideliuSmugiuSuma = 0;
+
+for (let i = 0; i < 5; i++) {
+  let ended2b = false;
+  let dideliuSmugiuSuma = 0;
+  for (
+    dideliuSmugiuKartai = 1;
+    dideliuSmugiuKartai < 20;
+    dideliuSmugiuKartai++
+  ) {
+    if (ended2b) break;
+    didelisSmugis = randomSkaicius(20, 30);
+    tikimybe = randomSkaicius(1, 2);
+
+    // if (tikimybe == 1) {
+    //   document.getElementById("ciklai_6buzduotis").innerHTML +=
+    //     " nepataike <br>";
+    //   //jei isridena 12, ciklas baigiasi  sioje vietoje (neprisideda prie sumos ir suka random skaicius is naujo)
+    //   continue;
+    // }
+
+    dideliuSmugiuSuma += didelisSmugis;
+
+    if (dideliuSmugiuSuma >= 85) {
+      ended2b = true;
+      if (dideliuSmugiuSuma >= 85) {
+        text6b +=
+          "Kalimu skaicius " +
+          (i + 1) +
+          " viniai: " +
+          dideliuSmugiuSuma +
+          "<br>";
+      }
+    }
+  }
+}
+
+document.getElementById("ciklai_6buzduotis").innerHTML += text6b;
+
+// 7 UZDUOTIS
+let el_tevinis = document.querySelector("#ciklai_7uzduotis");
+let kvadratoAukstis = el_tevinis.offsetHeight;
+let kvadratasPlotis = el_tevinis.offsetWidth;
+let islindeKvadraciukai = 0;
+
+i = 0;
+while (i < 300) {
+  el_tevinis.innerHTML += '<div class = "sukurtas_kvadratelis"></div>';
+
+  let elementas = document.querySelectorAll(".sukurtas_kvadratelis")[i];
+  let atsitiktinisVirsus = randomSkaicius(0, 550);
+  let atsitiktineKaire = randomSkaicius(0, 550);
+
+  elementas.style.top = atsitiktinisVirsus + "px";
+  elementas.style.left = atsitiktineKaire + "px";
+
+  if (
+    atsitiktinisVirsus > kvadratoAukstis ||
+    atsitiktineKaire > kvadratasPlotis
+  )
+    islindeKvadraciukai++;
+  i++;
+}
+
+document.querySelector("#ciklai_7auzduotis").innerHTML +=
+  "Uz ribu islinde kvadraciukai " + islindeKvadraciukai;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//FUNKCIJOS 26.07.2021
+
+//length
+//split()
+//replace()
+//repeat()
+//charAt()
+//substr()
+//toLowerCase()
+//toUpperCase()
+//trim()
+//startsWith() true / false
+//endsWith() true /false
+//includes() true /false
+//indexOf() search()
+//lastIndexOf()
+
+let stringas = "Pavasarį žydi labai daug medžių";
+
+//Apie length
+//console.log(stringas.length); //Konsoleje atvaizduojamas kintamojo reiksmes simboliu kiekis
+
+//Apie split
+//let stringo_masyvas = stringas.split(' ');
+
+//console.log( stringo_masyvas[4] );
+
+//Apie replace()
+//console.log( stringas.replace('žydi', 'atgminsta') );  //Konsoleje atvaizduojamas naujas sakinys su pakeistu zodziu zydi i zodi atgimsta
+
+//Apie repeat()
+//console.log( stringas.repeat(1) );
+
+//Apie charAt() Graziname viena simboli is specifiskos pozicijos
+//console.log( stringas.charAt(0) );
+
+//Apie substr() Graziname simbolius nuo pirmame parametre nurodytos pozicijos iki antrame parametre nurodyto kiekio
+//console.log( stringas.substr(10, 9) );
+
+//Apie toLowerCase()
+//console.log( stringas.toLowerCase() );
+
+//Apie toUpperCase()
+//console.log( stringas.toUpperCase() );
+
+//Apie trim()
+//stringas = '    Pavasarį žydi labai daug medžių         ';
+
+//console.log( stringas.trim() );
+
+//Apie startsWith() true arba false rezultatas
+//boolean
+//console.log( stringas.startsWith('P') );
+
+//Apie endsWith() auksciau minetos funkcijos priespriesa
+//console.log( stringas.endsWith('ų') );
+
+//Apie includes()
+//console.log( stringas.includes('v') );
+
+//Apie indexOf()
+//console.log(stringas.indexOf('žydi'));
+
+//Apie lastIndexOf()
+//console.log(stringas.lastIndexOf('ž'));
+
+// 1 UZDUOTIS
+
+let aktoriausVardas = "Morgan";
+let aktoriausPavarde = "Freeman";
+
+console.log(aktoriausVardas.length);
+console.log(aktoriausPavarde.length);
+
+document.querySelector("#funkcijos_1uzduotis").innerHTML +=
+  "Trumpesnis stringas " + aktoriausVardas;
+
+// 2 UZDUOTIS
+
+document.querySelector("#funkcijos_2uzduotis").innerHTML +=
+  aktoriausVardas.toUpperCase();
+
+document.querySelector("#funkcijos_2auzduotis").innerHTML +=
+  aktoriausPavarde.toLowerCase();
+
+// 3 UZDUOTIS
+console.log(aktoriausVardas.charAt(0));
+console.log(aktoriausPavarde.charAt(0));
+
+let pirmosRaides = aktoriausVardas.charAt(0) + aktoriausPavarde.charAt(0);
+
+document.querySelector("#funkcijos_3uzduotis").innerHTML += pirmosRaides;
+
+// 4 UZDUOTIS
+
+console.log(aktoriausVardas.substr(3, 5));
+console.log(aktoriausPavarde.substr(4, 6));
+
+let trysRaides = aktoriausVardas.substr(3, 5) + aktoriausPavarde.substr(4, 6);
+
+document.querySelector("#funkcijos_4uzduotis").innerHTML += trysRaides;
+
+// 5 UZDUOTIS
+
+let Hollywood = "Once upon a time in Hollywood";
+
+console.log(Hollywood.toLowerCase().replaceAll("o", "*"));
+
+document.querySelector("#funkcijos_5uzduotis").innerHTML +=
+  Hollywood.toLowerCase().replaceAll("o", "*");
+
+// 6 UZDUOTIS

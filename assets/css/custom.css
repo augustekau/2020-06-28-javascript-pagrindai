@@ -48,3 +48,24 @@
 #ciklai_1uzduotis {
   word-break: break-all;
 }
+
+#ciklai_7uzduotis {
+  position: relative;
+  background-color: bisque;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+.sukurtas_kvadratelis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: blueviolet;
+}
+#ciklai_7auzduotis {
+  margin-top: 50px;
+}
