@@ -1013,8 +1013,13 @@ let aktoriausPavarde = "Freeman";
 console.log(aktoriausVardas.length);
 console.log(aktoriausPavarde.length);
 
-document.querySelector("#funkcijos_1uzduotis").innerHTML +=
-  "Trumpesnis stringas " + aktoriausVardas;
+if (aktoriausVardas.length < aktoriausPavarde.length) {
+  document.querySelector("#funkcijos_1uzduotis").innerHTML +=
+    "Trumpesnis stringas " + aktoriausVardas;
+} else {
+  document.querySelector("#funkcijos_1uzduotis").innerHTML +=
+    "Trumpesnis stringas " + aktoriausPavarde;
+}
 
 // 2 UZDUOTIS
 
@@ -1051,3 +1056,65 @@ document.querySelector("#funkcijos_5uzduotis").innerHTML +=
   Hollywood.toLowerCase().replaceAll("o", "*");
 
 // 6 UZDUOTIS
+
+var count = (Hollywood.toLowerCase().match(/o/g) || []).length;
+console.log(count);
+
+document.querySelector("#funkcijos_6uzduotis").innerHTML += count;
+
+// 7 UZDUOTIS
+
+function balsesOut(sakinys) {
+  let sakinysBeBalsiu = sakinys
+    .toLowerCase()
+    .replaceAll("a", "")
+    .replaceAll("e", "")
+    .replaceAll("i", "")
+    .replaceAll("y", "")
+    .replaceAll("o", "");
+  return sakinysBeBalsiu;
+}
+
+let american = "An American in Paris";
+let tiffanys = "Breakfast at Tiffany's";
+let space = "2001:A Space Odyssey";
+let life = "It's a Wonderful Life";
+
+document.querySelector("#funkcijos_7uzduotis").innerHTML +=
+  balsesOut(american) +
+  "<br>" +
+  balsesOut(tiffanys) +
+  "<br>" +
+  balsesOut(space) +
+  "<br>" +
+  balsesOut(life);
+
+// 8 UZDUOTIS
+// su funkcija
+
+function zodziuTikrinimas(phrase, ilgis) {
+  let frazesMasyvas = phrase.split(" ");
+  let zodziuCounter = 0;
+  for (let i = 0; i < frazesMasyvas.length; i++) {
+    if (frazesMasyvas[i].length <= ilgis) zodziuCounter++;
+  }
+  return zodziuCounter;
+}
+let fraze =
+  "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
+let fraze2 =
+  "Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale";
+let patikrinti = zodziuTikrinimas(fraze, 5);
+let patikrinti2 = zodziuTikrinimas(fraze2, 5);
+
+document.querySelector("#funkcijos_8auzduotis").innerHTML += patikrinti;
+document.querySelector("#funkcijos_8buzduotis").innerHTML += patikrinti2;
+
+// Papildoma uzduotis
+raides = "abcdefghijklmnopqrstuvwxyz";
+let randomraides = "";
+for (var i = 0; i < 3; i++) {
+  randomraides += raides.charAt(Math.floor(Math.random() * raides.length));
+}
+document.querySelector("#funkcijos_papildoma_uzduotis").innerHTML +=
+  randomraides;
