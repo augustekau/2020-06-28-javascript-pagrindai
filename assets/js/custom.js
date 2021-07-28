@@ -1118,3 +1118,115 @@ for (var i = 0; i < 3; i++) {
 }
 document.querySelector("#funkcijos_papildoma_uzduotis").innerHTML +=
   randomraides;
+
+// /////////
+// 28.07.2021 sukurti funkciija, kad textas pildytusi automatiskai, nenaudojant HTML div
+
+function headingas(uzduotis, tema = false, tevinis = ".appended-text") {
+  let child = document.querySelector(tevinis);
+
+  if (tema) {
+    let klase = tema.replace(" ", "").toLowerCase();
+
+    document.querySelector(tevinis).innerHTML +=
+      '<div class="' + klase + '"></div>'; //Kaip ir ankstesneje uzduotyje sukurtas parent elementas uzduociai ir headingai kiekvienai is ju
+
+    child = document.querySelector("." + klase);
+
+    child.innerHTML += "<h1>" + tema + "</h1>";
+  }
+
+  child.innerHTML += "<h3>" + uzduotis + "</h3>";
+
+  return "." + child.className;
+}
+// paleisti funkcija
+headingas("Pirma užduotis", "Funkcijos 2021-07-28");
+
+//1 UZDUOTIS
+
+function palyginimas(stringas1, stringas2) {
+  if (stringas1.length == stringas2.length) {
+    document.querySelector(".pirma-uzduotis").innerHTML += "Stringai vienodi";
+  } else if (stringas1.length > stringas2.length) {
+    document.querySelector(".pirma-uzduotis").innerHTML +=
+      "Pirmas stringas yra ilgesnis";
+  } else {
+    document.querySelector(".pirma-uzduotis").innerHTML +=
+      "Antras stringas yra ilgesnis";
+  }
+}
+let pirmasStringas = "bla bla";
+let antrasStringas = "bla bla bla";
+palyginimas(pirmasStringas, antrasStringas);
+
+//2 UZDUOTIS
+
+function istorija(a, b, c, d, e) {
+  document.querySelector(".antra-uzduotis").innerHTML +=
+    "Jūs būsite " +
+    a +
+    " ir gyvensite " +
+    b +
+    ". Susituoksite su " +
+    c +
+    " bei turėsite šunį vardu " +
+    d +
+    ", o mirsite sulaukę " +
+    e +
+    " metų. <br>";
+}
+istorija("1", "2", "3", "4", "80");
+istorija("a", "b", "c", "d", "90");
+istorija("o", "y", "r", "w", "100");
+
+//3 UZDUOTIS
+
+function HowOldTheDogIs(zmogausMetai) {
+  let dogYears = zmogausMetai * 7;
+  return dogYears;
+}
+
+let suniukoMetai = "Jūsų šuniukui yra " + HowOldTheDogIs(2.5) + " metų";
+
+document.querySelector(".trecia-uzduotis").innerHTML += suniukoMetai;
+
+//4 UZDUOTIS
+
+//pirmas budas
+
+// function converter(varMyles, varKm) {
+//   let MylesToKm = varMyles * 1.609;
+//   let KmToMyles = varKm * 0.621;
+//   if (varMyles > varKm) {
+//     document.querySelector(".ketvirta-uzduotis").innerHTML +=
+//       varMyles + " mi yra " + MylesToKm + " km <br>";
+//   } else {
+//     document.querySelector(".ketvirta-uzduotis").innerHTML +=
+//       varKm + " km yra " + KmToMyles + " mi <br>";
+//   }
+// }
+
+// converter(1, 0);
+// converter(0, 1);
+// converter(0, 12);
+// converter(12, 0);
+
+// antras budas
+
+function converter(varSkaicius, varVienetas) {
+  let MylesToKm = varSkaicius * 1.609;
+  let KmToMyles = varSkaicius * 0.621;
+  if (varVienetas == "mi") {
+    document.querySelector(".ketvirta-uzduotis").innerHTML +=
+      varSkaicius + " mi yra " + MylesToKm + " km <br>";
+  } else {
+    document.querySelector(".ketvirta-uzduotis").innerHTML +=
+      varSkaicius + " km yra " + KmToMyles + " mi <br>";
+  }
+}
+
+converter(1, "mi");
+converter(1, "km");
+converter(12, "km");
+converter(12, "mi");
