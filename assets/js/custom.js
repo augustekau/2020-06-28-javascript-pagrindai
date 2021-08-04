@@ -1248,19 +1248,21 @@ el_selector.innerHTML += matai(1, false);
 // CIKLAI 29.71.2021
 
 // 1 UZDUOTIS
+
+// Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
+
 let naujasMasyvas = [];
 let counterM = 0;
-let maxNumber = 0;
-let maxNumberM = 0;
-let maxIndexM = 0;
 let poriniaiIndeksai = 0;
 
 for (i = 0; i <= 29; i++) {
   let masyvoSkaicius = randomSkaicius(5, 25);
   naujasMasyvas.push(masyvoSkaicius);
   // 2 UZDUOTIS A
+  // Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
   if (masyvoSkaicius > 10) counterM++;
   // 2 UZDUOTIS C
+  // Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
   // pasirenkam kad imtu lyginius indeksus
   if (i % 2 == 0) {
     // += susumuojam
@@ -1268,35 +1270,44 @@ for (i = 0; i <= 29; i++) {
   }
 }
 // 2 UZDUOTIS D
+// Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmės minus tos reikšmės indeksas;
 let naujasMasyvas2 = [];
-for (i = 0; i <= naujasMasyvas.length; i++) {
+for (let i = 0; i < naujasMasyvas.length; i++) {
   naujasMasyvas2[i] = naujasMasyvas[i] - i;
 }
 
 // 2 UZDUOTIS E
+// Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
 for (i = 0; i < 10; i++) {
-  randomSkaicius(5, 25);
   naujasMasyvas.push(randomSkaicius(5, 25));
 }
 
 console.log(naujasMasyvas);
 
-// 2 UZDUOTIS E
+// 2 UZDUOTIS F
+// Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš
+// neporinių indekso reikšmių, o kitas iš porinių;
+
 let naujasMasyvas_1 = [];
 let naujasMasyvas_2 = [];
-let pirmas_indeksas_mazesnis_uz_10 = 0;
+let pirma_reiksme_mazesne_uz_10 = 0;
 
-// naujasMasyvas.forEach(function (reksme, indeksas) {
-//   if (indeksas % 2 == 0) {
-//     naujasMasyvas_1.push(reiksme);
-//   } else {
-//     naujasMasyvas_.push(reiksme);
-//   }
-//   // 2 UZDUOTIS F
-//   if (reiksme > 10) pirmas_indeksas_mazesnis_uz_10 = indeksas;
-// });
+naujasMasyvas.forEach(function (reiksme, indeksas) {
+  if (indeksas % 2 == 0) {
+    naujasMasyvas_1.push(reiksme);
+  } else {
+    naujasMasyvas_2.push(reiksme);
+  }
+
+  // 2 UZDUOTIS G
+  // Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+  if (reiksme > 10) {
+    pirma_reiksme_mazesne_uz_10 = indeksas;
+  }
+});
 
 // 2 UZDUOTIS B
+// Raskite didžiausią masyvo reikšmę ir jos indeksą;
 let maxReiksme = Math.max.apply(null, naujasMasyvas);
 let maxIndeksas = naujasMasyvas.indexOf(maxReiksme);
 
@@ -1322,24 +1333,40 @@ el_selector.innerHTML +=
   "c) Lyginiu indeksu reiksmiu suma:  " +
   poriniaiIndeksai +
   "<br>" +
-  "d) Naujas masyvas  " +
-  naujasMasyvas2[i];
+  "d) Naujas masyvas:  " +
+  naujasMasyvas2 +
+  "<br>" +
+  "e) Naujas masyvas su pridetomis 10 reiksmiu:  " +
+  naujasMasyvas +
+  "<br>" +
+  "f) Porines indekso reiksmes:  " +
+  naujasMasyvas_1 +
+  "<br>" +
+  "Neporines indekso reiksmes:  " +
+  naujasMasyvas_2 +
+  "<br>" +
+  "g) pirmas (mažiausias) indeksas, kurio elemento reikšmė didesnė už 10:  " +
+  pirma_reiksme_mazesne_uz_10;
 
 // lengvesnis budas
 
 // naujasMasyvas.forEach(function (lengvesnisBudas) {
 //   // console.log(lengvesnisBudas);
 // });
-// let abecele = [];
-// let tekstinisMasyvas = ["as", "bite", "vasara", "lietus", "saule", "citrina"];
-// abecele.sort(tekstinisMasyvas);
 
-// console.log(abecele);
+// RANDOM UZDUOTIS isrikiuoti pagal abecele
+
+let tekstinisMasyvas = ["as", "bite", "vasara", "lietus", "saule", "citrina"];
+tekstinisMasyvas.sort();
+
+console.log(tekstinisMasyvas);
 
 /////////////////////////////////////////////////////////////////////////////////////
 // CIKLAI 02.08.2021
 
 // 1 uzduotis
+// Sugeneruokite masyvą, kurio reikšmės
+// atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės
 
 elementas = headingas("Pirma uzduotis", "Masyvai 2021-08-02");
 el_selector = document.querySelector(elementas);
@@ -1380,6 +1407,7 @@ el_selector.innerHTML +=
   "<br>";
 
 // 2 uzduotis
+// Išrūšiuokite pirmo uždavinio masyvą pagal abecėlę.
 elementas = headingas("Antra uzduotis");
 el_selector = document.querySelector(elementas);
 
@@ -1388,6 +1416,9 @@ naujasRaidesM.sort();
 el_selector.innerHTML += naujasRaidesM;
 
 // 3 uzduotis
+// Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100.
+// Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+
 elementas = headingas("Trecia uzduotis");
 el_selector = document.querySelector(elementas);
 
@@ -1422,6 +1453,9 @@ el_selector.innerHTML += "Antras masyvas: " + skaiciuMasyvas2;
 // ! means the "the opposite of"
 
 // 4 uzduotis
+// Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių,
+// kurios yra pirmame 3 uždavinio masyve, bet nėra antrame 3 uždavinio masyve.
+
 elementas = headingas("Ketvirta uzduotis");
 el_selector = document.querySelector(elementas);
 
@@ -1434,10 +1468,16 @@ while (skaiciuMasyvas3.length < 100) {
 el_selector.innerHTML += "Trecias masyvas: " + skaiciuMasyvas3;
 
 // 5 uzduotis
+// Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 3 uždavinio masyvuose.
+
 elementas = headingas("Penkta uzduotis");
 el_selector = document.querySelector(elementas);
 
 // 6 uzduotis
+
+// Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25.
+// Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
+
 elementas = headingas("Sesta uzduotis");
 el_selector = document.querySelector(elementas);
 
@@ -1456,6 +1496,10 @@ el_selector.innerHTML += masyvas6;
 // OBJEKTAS 03.08.2021
 
 // 1 uzduotis
+
+// Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 3 uždavinio masyvo reikšmės,
+// o jo reikšmės būtų iš antrojo masyvo.
+
 elementas = headingas("Pirma uzduotis", "Objektas 2021-08-03");
 el_selector = document.querySelector(elementas);
 
@@ -1472,19 +1516,101 @@ for (let i in objektoMasyvas) {
 }
 
 // 2 uzduotis
+
+// Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 3 uždavinio masyvo reikšmės,
+// o jo reikšmės būtų iš antrojo masyvo.
+
 elementas = headingas("Antra uzduotis");
 el_selector = document.querySelector(elementas);
 
 let objektoMasyvas2 = {};
+let raideX = "absgtmonsh";
 
-for (let i = 0; i < 100; i++) {
-  let raideX = raidesM.charAt(Math.floor(Math.random() * raidesM.length));
-  objektoMasyvas2[raideX] = [randomSkaicius(55, 5555)];
+for (let i = 0; i < 50; i++) {
+  let randomRaideX = "";
+  for (let i = 0; i < 3; i++) {
+    randomRaideX += raideX.charAt(Math.floor(Math.random() * raideX.length));
+  }
 
-  console.log(objektoMasyvas2);
+  objektoMasyvas2[randomRaideX] = [randomSkaicius(55, 5555)];
 }
 
-for (let i in objektoMasyvas2) {
+for (let indeksas in objektoMasyvas2) {
   el_selector.innerHTML +=
-    "Indeksas lygu: " + i + " Reiksme lygu: " + raideX + "<br>";
+    "Indeksas lygu: " +
+    indeksas +
+    " Reiksme lygu: " +
+    randomSkaicius(55, 5555) +
+    "<br>";
 }
+
+/////////////////////////////////////////////////////////////////////////////////////
+// UZDAVINIAI 03.08.2021
+
+// 1 uzduotis
+
+// Sugeneruokite 100 (20) eilučių objektą kurio indeksas turėtų būti sukurtas iš atsitiktinių raidžių,
+// o reikšmė atsitiktinis skaičius nuo 55 iki 5555.
+
+elementas = headingas("Pirma uzduotis", "Objektai 2021-08-04");
+el_selector = document.querySelector(elementas);
+
+let objektoMasyvas3 = {};
+let raideRandom =
+  "absgtmonsvcxcvbjhgfdfghjklkjhgfdfghjklkjhgfghjkjhgfdfghjklkjhgfdfghjklkjhgfdfghjklkjhgfjnsdvjn";
+
+for (let i = 0; i <= 20; i++) {
+  let raideRandom3 = "";
+  for (let i = 0; i < 2; i++) {
+    raideRandom3 += raideRandom.charAt(
+      Math.floor(Math.random() * raideRandom.length)
+    );
+  }
+  objektoMasyvas3[raideRandom3] = [randomSkaicius(55, 5555)];
+}
+
+for (let indeksas2 in objektoMasyvas3) {
+  el_selector.innerHTML +=
+    "Indeksas lygu: " +
+    indeksas2 +
+    " Reiksme lygu: " +
+    randomSkaicius(55, 5555) +
+    "<br>";
+}
+
+// 2 uzduotis
+
+// Sukurkite 115 eilučių masyvą ir iš jo ištrinkite visus elementus turinčius porinį indeksą
+
+elementas = headingas("Antra uzduotis");
+el_selector = document.querySelector(elementas);
+
+let objektoMasyvas4 = {};
+
+for (let i = 0; i <= 115; i++) {
+  objektoMasyvas4[i] = [randomSkaicius(55, 5555)];
+}
+for (let i = 0; i <= objektoMasyvas4.length; i++) {
+  if (i % 2 == 0) objektoMasyvas4.splice(i, 1, "delete");
+}
+
+console.log(objektoMasyvas4);
+
+for (let indeksas3 in objektoMasyvas4) {
+  el_selector.innerHTML +=
+    "Indeksas lygu: " +
+    indeksas3 +
+    " Reiksme lygu: " +
+    randomSkaicius(55, 5555) +
+    "<br>";
+}
+//  3uzduotis
+// Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. Reikšmes kurios tame masyve
+// yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios. Išrūšiuokite masyvą taip,
+//  kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų.
+// Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės). Jeigu sumų skirtumas
+// (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite.
+// (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
+
+elementas = headingas("Antra uzduotis");
+el_selector = document.querySelector(elementas);
